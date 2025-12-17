@@ -1,16 +1,18 @@
-<h1>Hosting</h1>
-<h2 id="code"></h2>
-<script type="module">
-import { db } from '../firebase.js';
-import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Host – Qbits</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <h1>Game Code</h1>
+  <h2 id="code"></h2>
+  <p>Tell players to join with this code</p>
 
-
-const code = Math.floor(100000+Math.random()*900000).toString();
-document.getElementById('code').textContent = code;
-
-
-setDoc(doc(db,'games',code),{
-question:0,
-started:false
-});
-</script>
+  <script>
+    const code = Math.floor(100000 + Math.random() * 900000);
+    document.getElementById("code").textContent = code;
+    localStorage.setItem("qbits_game_" + code, "0");
+  </script>
+</body>
+</html>
